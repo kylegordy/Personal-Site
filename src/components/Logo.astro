@@ -1,0 +1,15 @@
+---
+import Triangle from "./Triangle.astro";
+import { SITE_TITLE } from "../config";
+---
+
+<div class="flex items-center gap-3.5 group font-bold">
+  <div
+    class="relative h-10 w-10 rounded-lg rounded-br-none border-2 border-primary">
+    <Triangle
+      class="[--size:10px] absolute bottom-0 right-0 origin-bottom-right text-primary transition-transform ease-in-out group-hover:scale-150 duration-300"
+    />
+  </div>
+
+  <h1 class="text-xl">{SITE_TITLE}</h1>
+</div>

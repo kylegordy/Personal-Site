@@ -1,0 +1,14 @@
+---
+const { class: className } = Astro.props;
+---
+
+<div class={className + " triangle"}></div>
+
+<style>
+  .triangle {
+    width: 0;
+    height: 0;
+    border-bottom: var(--size) solid currentColor;
+    border-left: var(--size) solid transparent;
+  }
+</style>

@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Layout */
+    --container-padding: 4vw;
+
+    /* Grayscale */
+    --color-white: 0deg 0% 100%;
+
+    /* Custom Colors */
+    --color-ash-900: 0deg 0% 5%;
+    --color-ash-800: 30deg 5% 8%;
+    --color-ash-500: 37deg 4% 36%;
+    --color-ash-200: 40deg 6% 90%;
+    --color-ash-100: 40deg 12% 95%;
+
+    --color-saffron: 14deg 100% 44%;
+    --color-saffron-dark: 14deg 100% 29%;
+
+    --color-amber: 43deg 100% 69%;
+    --color-amber-dark: 43deg 100% 49%;
+
+    /* Primary Color */
+    --color-primary: var(--color-saffron);
+    --color-primary-dark: var(--color-dark);
+
+    /* Page Background */
+    --color-page: var(--color-white);
+
+    /* Body Text */
+    --color-body: var(--color-ash-900);
+  }
+
+  /* Dark Theme */
+  @media (prefers-color-scheme: dark) {
+    :root {
+      /* Page Background */
+      --color-page: var(--color-ash-900);
+
+      /* Body Text */
+      --color-body: var(--color-white);
+
+      /* Primary Color */
+      --color-primary: var(--color-amber);
+      --color-primary-dark: var(--color-amber-dark);
+    }
+  }
+}
