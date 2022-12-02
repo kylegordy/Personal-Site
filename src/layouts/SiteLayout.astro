@@ -8,6 +8,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
 import "../styles/base.css";
 import stylesUrl from "@fontsource/sora/variable.css?url";
 import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 ---
 
 <html lang="en" class="bg-page text-body antialiased">
@@ -22,5 +23,6 @@ import Header from "../components/Header.astro";
   <body class="flex flex-col min-h-screen">
     <Header title={SITE_TITLE} />
     <slot />
+    <Footer />
   </body>
 </html>

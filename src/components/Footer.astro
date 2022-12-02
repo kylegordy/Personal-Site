@@ -1,0 +1,51 @@
+---
+import HeaderFooterLink from "./HeaderFooterLink.astro";
+---
+
+<footer class="container p-0 sm:px-[calc(var(--container-padding)/2.5)]">
+  <div
+    class="px-[var(--container-padding)] py-[calc(var(--container-padding)*1.5)] sm:p-[calc(var(--container-padding)/1.5)] bg-page-offset rounded-t-5xl grid grid-cols-2 sm:grid-cols-[repeat(auto-fit,minmax(min(100%,250px),max-content))] gap-7 sm:gap-[calc(var(--container-padding)/1.5)]">
+    <!-- Links -->
+    <div>
+      <h2 class="font-bold text-base mb-1 sm:mb-2">Links</h2>
+      <nav
+        class="grid sm:grid-cols-[repeat(2,max-content)] gap-1.5 md:gap-y-3 gap-x-12">
+        <HeaderFooterLink href="/">Projects</HeaderFooterLink>
+        <HeaderFooterLink href="/about">About</HeaderFooterLink>
+        <HeaderFooterLink href="/contact">Contact</HeaderFooterLink>
+        <HeaderFooterLink href="/privacy">Privacy</HeaderFooterLink>
+      </nav>
+    </div>
+
+    <!-- Social -->
+    <div>
+      <h2 class="font-bold text-base mb-1 sm:mb-2">Social</h2>
+      <nav
+        class="grid sm:grid-cols-[repeat(2,max-content)] gap-1.5 md:gap-y-3 gap-x-12">
+        <HeaderFooterLink href="https://www.instagram.com/kylegordy/"
+          >Instagram</HeaderFooterLink
+        >
+        <HeaderFooterLink href="https://codepen.io/kylegordy"
+          >CodePen</HeaderFooterLink
+        >
+        <HeaderFooterLink href="https://github.com/kylegordy"
+          >Github</HeaderFooterLink
+        >
+        <HeaderFooterLink href="https://www.linkedin.com/in/kylegordy/"
+          >LinkedIn</HeaderFooterLink
+        >
+      </nav>
+    </div>
+
+    <!-- Contact -->
+    <div class="max-md:col-span-2">
+      <h2 class="font-bold text-base mb-1 sm:mb-2">Contact</h2>
+      <nav class="grid gap-1.5 md:gap-y-3 gap-x-12">
+        <p class="font-mono text-muted">Chattanooga, TN</p>
+        <HeaderFooterLink href="mailto:kyle@kgordy.com"
+          >kyle@kgordy.com</HeaderFooterLink
+        >
+      </nav>
+    </div>
+  </div>
+</footer>

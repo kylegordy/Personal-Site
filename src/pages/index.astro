@@ -1,7 +1,102 @@
 ---
 import SiteLayout from "../layouts/SiteLayout.astro";
+import Triangle from "../components/Triangle.astro";
 ---
 
 <SiteLayout title="UI Designer & Frontend Developer">
-  <main class="container grow grid place-content-center">Homepage</main>
+  <main>
+    <!-- Hero -->
+    <section
+      class="container grid gap-[var(--container-padding)] lg:grid-cols-[1fr,40%] items-center pb-[calc(var(--container-padding)*1.5)] lg:py-0">
+      <div>
+        <h2 class="text-3xl font-bold mb-4 lg:mb-7">
+          I build hard-working websites & apps.
+        </h2>
+        <p class="text-base text-muted lg:mb-7">
+          Hi, I'm Kyle 👋 I'm a multifaceted developer/designer with 10+ years
+          of experience. I'm passionate about building impactful, and accessible
+          products folks enjoy using.
+        </p>
+      </div>
+
+      <!-- Moody Portrait -->
+      <div
+        class="relative z-10 lg:place-self-end outline outline-1 outline-offset-[-1px] outline-border rounded-4xl rounded-br-none overflow-hidden order-first lg:order-none max-w-[250px] lg:max-w-[500px]">
+        <img
+          class="relative z-10"
+          src="https://res.cloudinary.com/drl4zairb/image/upload/w_500,h_750,c_fill,g_face,q_auto:eco,f_auto,dpr_1/v1667341669/moody-portrait_tqbrou.png"
+          srcset="
+          https://res.cloudinary.com/drl4zairb/image/upload/w_500,h_750,c_fill,g_face,q_auto:eco,f_auto,dpr_1/v1667341669/moody-portrait_tqbrou.png,
+          https://res.cloudinary.com/drl4zairb/image/upload/w_500,h_750,c_fill,g_face,q_auto:eco,f_auto,dpr_2/v1667341669/moody-portrait_tqbrou.png 2x
+        "
+          width="500"
+          height="750"
+          alt="Moody black and white portrait of Kyle Gordy"
+          loading="lazy"
+        />
+
+        <Triangle
+          class="[--size:min(35vw,650px)] absolute bottom-0 right-0 text-primary z-0"
+        />
+
+        <Triangle
+          class="[--size:min(15vw,80px)] absolute bottom-0 right-0 text-primary z-20"
+        />
+      </div>
+    </section>
+
+    <!-- Featured Projects -->
+    <section
+      class="container p-0 sm:p-[calc(var(--container-padding)_/_2.5)] sm:pb-0 md:-mt-[var(--container-padding)]">
+      <div
+        class="px-[var(--container-padding)] py-[calc(var(--container-padding)*1.5)] sm:p-[calc(var(--container-padding)_/_1.5)] bg-page-offset rounded-b-5xl">
+        <h2 class="text-3xl font-bold">
+          <span class="block font-mono font-normal text-muted text-base md:mb-2"
+            >Featured</span
+          >Projects
+        </h2>
+
+        <ul
+          class="grid md:grid-cols-[1.5fr_1fr_1.5fr] gap-[calc(var(--container-padding)/2)] my-7 md:my-14">
+          <li
+            class="h-96 bg-page rounded-4xl odd:rounded-br-none even:rounded-bl-none col-span-2">
+          </li>
+          <li
+            class="h-96 bg-page rounded-4xl odd:rounded-br-none even:rounded-bl-none">
+          </li>
+          <li
+            class="h-96 bg-page rounded-4xl odd:rounded-br-none even:rounded-bl-none">
+          </li>
+          <li
+            class="h-96 bg-page rounded-4xl odd:rounded-br-none even:rounded-bl-none col-span-2">
+          </li>
+          <li
+            class="h-96 bg-page rounded-4xl odd:rounded-br-none even:rounded-bl-none col-span-2">
+          </li>
+          <li
+            class="h-96 bg-page rounded-4xl odd:rounded-br-none even:rounded-bl-none">
+          </li>
+          <li
+            class="h-96 bg-page rounded-4xl odd:rounded-br-none even:rounded-bl-none">
+          </li>
+          <li
+            class="h-96 bg-page rounded-4xl odd:rounded-br-none even:rounded-bl-none col-span-2">
+          </li>
+        </ul>
+
+        <button class="mb-2 md:mb-7 btn-link text-lg">More Projects</button>
+      </div>
+    </section>
+
+    <!-- Help CTA -->
+    <section
+      class="container py-[calc(var(--container-padding)*2)] md:py-[var(--container-padding)]">
+      <h2 class="text-2xl font-bold mb-3 md:mb-4">Need help with a project?</h2>
+      <p class="mb-4 md:mb-6 text-base text-muted max-w-2xl">
+        I'm currently looking for new ones and would love to learn more about
+        yours. I'm comfortable working alone or alongside your team.
+      </p>
+      <button class="btn-link text-lg">Schedule a Call</button>
+    </section>
+  </main>
 </SiteLayout>

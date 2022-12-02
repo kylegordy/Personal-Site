@@ -8,8 +8,10 @@ const isActive = href === Astro.url.pathname.replace(/\/$/, "/");
 <a
   href={href}
   class:list={[
-    "font-mono inline-block p-2 focus:text-primary hover:text-primary",
-    { "underline text-primary underline-offset-8": isActive },
+    "font-mono text-sm text-primary focus:text-primary hover:text-primary hover:underline focus:underline underline-offset-8 transition-colors decoration-transparent hover:decoration-primary-dark",
+    {
+      "underline decoration-primary-dark": isActive,
+    },
   ]}
   {...props}>
   <slot />

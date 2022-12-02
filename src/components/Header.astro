@@ -1,5 +1,5 @@
 ---
-import HeaderLink from "./HeaderLink.astro";
+import HeaderFooterLink from "./HeaderFooterLink.astro";
 import Logo from "./Logo.astro";
 ---
 
@@ -8,9 +8,9 @@ import Logo from "./Logo.astro";
   <a class="hover:text-primary focus:text-primary transition-colors" href="/">
     <Logo />
   </a>
-  <nav class="flex gap-5 lg:gap-10">
-    <HeaderLink href="/">projects</HeaderLink>
-    <HeaderLink href="/about">about</HeaderLink>
-    <HeaderLink href="/contact">contact</HeaderLink>
+  <nav class="flex gap-5 lg:gap-12">
+    <HeaderFooterLink href="/">Projects</HeaderFooterLink>
+    <HeaderFooterLink href="/about">About</HeaderFooterLink>
+    <HeaderFooterLink href="/contact">Contact</HeaderFooterLink>
   </nav>
 </header>

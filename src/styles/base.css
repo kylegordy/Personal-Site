@@ -5,17 +5,54 @@
 @layer base {
   :root {
     /* Layout */
-    --container-padding: 4vw;
+    --container-width: 106.25rem; /* 1700px */
+    --container-padding: min(6vw, 150px);
+
+    /* https: //www.fluid-type-scale.com/calculate?minFontSize=16&minWidth=375&minRatio=1.25&maxFontSize=18&maxWidth=1600&maxRatio=1.35&steps=sm,base,lg,xl,2xl,3xl,4xl&baseStep=base&prefix=font-size&decimals=2&useRems=on&previewFont=Inter */
+
+    /* Font Sizes */
+    /* https: //utopia.fyi/type/calculator/?c=375,24,1.2,1600,44,1.25,0,0,&s=0.75%7C0.5%7C0.25,1.5%7C2%7C3%7C4%7C6,s-l&g=s,l,xl,12 */
+    --font-size-xs: clamp(
+      0.75rem,
+      calc(0.71rem + 0.16vw),
+      0.875rem
+    ); /* 12 - 14 */
+    --font-size-sm: clamp(0.875rem, calc(0.84rem + 0.16vw), 1rem); /* 14 - 16 */
+    --font-size-base: clamp(
+      0.9375rem,
+      calc(0.88rem + 0.24vw),
+      1.125rem
+    ); /* 15 - 18 */
+    --font-size-lg: clamp(
+      1.0625rem,
+      calc(0.97rem + 0.41vw),
+      1.375rem
+    ); /* 17 - 22 */
+    --font-size-xl: clamp(1.25rem, calc(1.02rem + 0.98vw), 2rem); /* 20 - 32 */
+    --font-size-2xl: clamp(
+      1.375rem,
+      calc(0.95rem + 1.8vw),
+      2.75rem
+    ); /* 22 - 44 */
+    --font-size-3xl: clamp(
+      1.75rem,
+      calc(1.14rem + 2.61vw),
+      3.75rem
+    ); /* 28 - 60 */
 
     /* Grayscale */
     --color-white: 0deg 0% 100%;
 
     /* Custom Colors */
-    --color-ash-900: 0deg 0% 5%;
-    --color-ash-800: 30deg 5% 8%;
-    --color-ash-500: 37deg 4% 36%;
+    --color-ash-900: 40deg 1% 5%;
+    --color-ash-800: 40deg 4% 8%;
+    --color-ash-700: 40deg 4% 16%;
+    --color-ash-600: 40deg 4% 26%;
+    --color-ash-500: 40deg 4% 36%;
+    --color-ash-400: 40deg 4% 50%;
+    --color-ash-300: 40deg 4% 70%;
     --color-ash-200: 40deg 6% 90%;
-    --color-ash-100: 40deg 12% 95%;
+    --color-ash-100: 40deg 12% 97%;
 
     --color-saffron: 14deg 100% 44%;
     --color-saffron-dark: 14deg 100% 29%;
@@ -27,25 +64,43 @@
     --color-primary: var(--color-saffron);
     --color-primary-dark: var(--color-dark);
 
-    /* Page Background */
+    /* Page Backgrounds */
     --color-page: var(--color-white);
+    --color-page-offset: var(--color-ash-100);
+
+    /* Border */
+    --color-border: var(--color-ash-200);
 
     /* Body Text */
     --color-body: var(--color-ash-900);
+
+    /* Muted Text */
+    --color-muted: var(--color-ash-500);
   }
 
   /* Dark Theme */
   @media (prefers-color-scheme: dark) {
     :root {
-      /* Page Background */
+      /* Page Backgrounds */
       --color-page: var(--color-ash-900);
+      --color-page-offset: var(--color-ash-800);
+
+      /* Border */
+      --color-border: var(--color-ash-700);
 
       /* Body Text */
       --color-body: var(--color-white);
+
+      /* Muted Text */
+      --color-muted: var(--color-ash-300);
 
       /* Primary Color */
       --color-primary: var(--color-amber);
       --color-primary-dark: var(--color-amber-dark);
     }
+  }
+
+  .btn-link {
+    @apply font-bold pb-1 border-b-2 border-primary hover:text-primary focus:text-primary hover:border-primary-dark focus:border-primary-dark transition-colors;
   }
 }
