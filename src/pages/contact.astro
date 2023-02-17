@@ -1,9 +1,46 @@
 ---
-import SiteLayout from '../layouts/SiteLayout.astro';
+import SiteLayout from "../layouts/SiteLayout.astro";
+import { CHAT_BOOKING_URL } from "../config";
+import CTALink from "../components/CTALink.astro";
 ---
 
 <SiteLayout title="Contact">
-	<main class="container grow grid place-content-center">
-		Contact Page
-	</main>
+  <main
+    class="container grid min-h-[50vh] grow items-center justify-between gap-[var(--container-padding)] pb-[calc(var(--container-padding)/2)] md:grid-cols-[2fr,1fr]">
+    <div>
+      <h2 class="mb-3 text-2xl font-bold md:mb-4">Need help with a project?</h2>
+      <p class="mb-6 max-w-2xl text-base text-muted md:mb-10">
+        I’m currently looking for new ones and would love to learn more about
+        yours. I’m comfortable working alone or alongside your team.
+      </p>
+      <nav class="flex gap-6 md:gap-12">
+        <CTALink href="mailto:kyle@kgordy.com">Email Me</CTALink>
+        <CTALink href={CHAT_BOOKING_URL}>Schedule a Call</CTALink>
+      </nav>
+    </div>
+
+    <svg
+      class="hidden h-auto max-h-[600px] w-full justify-self-end md:block"
+      viewBox="0 0 400 600"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg">
+      <g>
+        <path
+          class="fill-primary"
+          d="M242.369 217.258L242.369 351.249L175.374 284.254L242.369 217.258Z">
+        </path>
+        <path
+          class="stroke-primary stroke-2"
+          d="M399 2.924L399 565.584L117.67 284.254L399 2.924Z"></path>
+        <path
+          class="stroke-primary stroke-2"
+          d="M341.861 2.91417L341.861 565.598L58.5651 284.256L341.861 2.91417Z">
+        </path>
+        <path
+          class="stroke-primary stroke-2"
+          d="M282.744 2.92394L282.744 565.584L1.4142 284.254L282.744 2.92394Z">
+        </path>
+      </g>
+    </svg>
+  </main>
 </SiteLayout>

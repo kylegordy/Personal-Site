@@ -15,12 +15,18 @@ import Footer from "../components/Footer.astro";
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="preload" href={stylesUrl} as="style" />
+    <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
+    <link
+      rel="preload"
+      href={stylesUrl}
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+    />
     <meta name="generator" content={Astro.generator} />
     <title>{SITE_TITLE} &ndash; {title}</title>
   </head>
-  <body class="flex flex-col min-h-screen">
+  <body class="grid min-h-screen grid-rows-[max-content,1fr,max-content]">
     <Header title={SITE_TITLE} />
     <slot />
     <Footer />

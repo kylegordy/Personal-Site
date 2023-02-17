@@ -1,0 +1,22 @@
+---
+import SiteLayout from "../../layouts/SiteLayout.astro";
+import { getCollection } from "astro:content";
+export async function getStaticPaths() {
+  const projectEntries = await getCollection("project");
+  return projectEntries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+---
+
+<SiteLayout title="{entry.data.title}">
+  <div class="container grid grow">
+    <article>
+      <h1 class="mb-4 text-3xl font-bold lg:mb-7">{entry.data.title}</h1>
+      <Content />
+    </article>
+  </div>
+</SiteLayout>

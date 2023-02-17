@@ -1,0 +1,38 @@
+---
+// Component Imports
+import FeaturedCard from "./FeaturedCard.astro";
+
+// Fetch Projects
+import { getCollection } from "astro:content";
+const project = await getCollection("project");
+
+// Sort Projects by Sort Order
+const projectSorted = project.sort(
+  (b, a) => b.data.sortOrder - a.data.sortOrder
+);
+---
+
+<section
+  class="container p-0 sm:p-[calc(var(--container-padding)_/_2.6)] sm:pb-0 md:-mt-[var(--container-padding)]">
+  <div
+    class="rounded-b-5xl bg-page-offset px-[var(--container-padding)] py-[calc(var(--container-padding)*1.5)] sm:p-[calc(var(--container-padding)_/_1.6)]">
+    <h2 class="text-3xl font-bold">
+      <span class="block font-mono text-base font-normal text-muted md:mb-2"
+        >Featured</span
+      >Projects
+    </h2>
+    <ul
+      class="my-7 grid gap-[calc(var(--container-padding)/2)] md:my-14 md:grid-cols-[1.5fr_1fr_1.5fr]">
+      {
+        projectSorted.map((projectEntry) => (
+          <FeaturedCard
+            title={projectEntry.data.title}
+            role={projectEntry.data.role}
+            url={`/project/${projectEntry.slug}`}
+            bgcolor={projectEntry.data.color}
+          />
+        ))
+      }
+    </ul>
+  </div>
+</section>

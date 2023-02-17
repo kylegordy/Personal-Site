@@ -1,7 +1,208 @@
 ---
 import SiteLayout from "../layouts/SiteLayout.astro";
+import Triangle from "../components/Triangle.astro";
+import CTALink from "../components/CTALink.astro";
 ---
 
 <SiteLayout title="About">
-  <main class="container grow grid place-content-center">About Page</main>
+  <main>
+    <section
+      class="container grid items-center gap-[var(--container-padding)] p-[var(--container-padding)] pt-0 lg:grid-cols-[min(35%,500px),1fr]">
+      <!-- Moody Portrait -->
+      <div
+        class="relative z-10 order-first max-w-[250px] overflow-hidden rounded-4xl rounded-br-none outline outline-1 outline-offset-[-1px] outline-border lg:order-none lg:max-w-[500px] lg:place-self-start">
+        <img
+          class="relative z-10"
+          src="https://res.cloudinary.com/drl4zairb/image/upload/w_500,h_750,c_fill,g_face,q_auto:eco,f_auto,dpr_1/v1667341669/moody-portrait_tqbrou.png"
+          srcset="
+          https://res.cloudinary.com/drl4zairb/image/upload/w_500,h_750,c_fill,g_face,q_auto:eco,f_auto,dpr_1/v1667341669/moody-portrait_tqbrou.png,
+          https://res.cloudinary.com/drl4zairb/image/upload/w_500,h_750,c_fill,g_face,q_auto:eco,f_auto,dpr_2/v1667341669/moody-portrait_tqbrou.png 2x
+        "
+          width="500"
+          height="750"
+          alt="Moody black and white portrait of Kyle Gordy"
+          loading="lazy"
+        />
+
+        <Triangle
+          class="[--size:min(35vw,650px)] absolute bottom-0 right-0 text-primary z-0"
+        />
+
+        <Triangle
+          class="[--size:min(15vw,80px)] absolute bottom-0 right-0 text-primary z-20"
+        />
+      </div>
+
+      <div class="max-w-2xl">
+        <h2 class="mb-4 text-3xl font-bold lg:mb-7">
+          I build hard-working websites & apps.
+        </h2>
+        <p class="text-base text-muted lg:mb-7">
+          I’m a freelance UI Designer and Frontend Web Developer working
+          remotely. I build hard-working websites and apps for hard-working
+          brands. I love creating thoughtful, simple, and accessible designs
+          that solve real business problems.
+        </p>
+        <p class="text-base text-muted lg:mb-7">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
+          dapibus quis libero id mollis. Proin ultricies sit amet dui eu
+          facilisis. Ut est odio, commodo ut volutpat.
+        </p>
+      </div>
+    </section>
+
+    <section
+      class="container p-0 sm:p-[calc(var(--container-padding)_/_2.6)] sm:py-0">
+      <div
+        class="grid gap-[var(--container-padding)] rounded-b-5xl bg-page-offset px-[var(--container-padding)] py-[calc(var(--container-padding)*1.5)] sm:p-[calc(var(--container-padding)_/_1.6)] md:grid-cols-2">
+        <div>
+          <h2 class="mb-5 text-2xl font-bold md:mb-11">Main Skills</h2>
+          <ol class="numbered-list grid gap-5 md:gap-11">
+            <li>
+              <h3 class="mb-1 text-lg font-medium sm:mb-2">
+                <span>User Interface Design</span>
+              </h3>
+              <p class="max-w-2xl text-base text-muted">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
+                dapibus quis libero id mollis. Proin ultricies sit amet dui eu
+                facilisis. Ut est odio, commodo ut volutpat.
+              </p>
+            </li>
+            <li>
+              <h3 class="mb-1 text-lg font-medium sm:mb-2">
+                <span>Frontend Development</span>
+              </h3>
+              <p class="max-w-2xl text-base text-muted">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
+                dapibus quis libero id mollis. Proin ultricies sit amet dui eu
+                facilisis. Ut est odio, commodo ut volutpat.
+              </p>
+            </li>
+            <li>
+              <h3 class="mb-1 text-lg font-medium sm:mb-2">
+                <span>Accessibility</span>
+              </h3>
+              <p class="max-w-2xl text-base text-muted">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
+                dapibus quis libero id mollis. Proin ultricies sit amet dui eu
+                facilisis. Ut est odio, commodo ut volutpat.
+              </p>
+            </li>
+          </ol>
+        </div>
+        <hr class="border-border md:hidden" />
+        <div>
+          <h2 class="mb-5 text-2xl font-bold md:mb-11">Values</h2>
+          <ol class="numbered-list grid gap-5 md:gap-11">
+            <li>
+              <h3 class="mb-1 text-lg font-medium sm:mb-2">
+                <span>Keep it Simple</span>
+              </h3>
+              <p class="max-w-2xl text-base text-muted">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
+                dapibus quis libero id mollis. Proin ultricies sit amet dui eu
+                facilisis. Ut est odio, commodo ut volutpat.
+              </p>
+            </li>
+            <li>
+              <h3 class="mb-1 text-lg font-medium sm:mb-2">
+                <span>Design is Code</span>
+              </h3>
+              <p class="max-w-2xl text-base text-muted">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
+                dapibus quis libero id mollis. Proin ultricies sit amet dui eu
+                facilisis. Ut est odio, commodo ut volutpat.
+              </p>
+            </li>
+            <li>
+              <h3 class="mb-1 text-lg font-medium sm:mb-2">
+                <span>Never Not Learning</span>
+              </h3>
+              <p class="max-w-2xl text-base text-muted">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
+                dapibus quis libero id mollis. Proin ultricies sit amet dui eu
+                facilisis. Ut est odio, commodo ut volutpat.
+              </p>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="container grid gap-[min(var(--container-padding),3.125rem)] py-[calc(var(--container-padding)*2)] md:py-[var(--container-padding)]">
+      <div>
+        <h2 class="mb-3 text-2xl font-bold md:mb-4">Experience</h2>
+        <p class="max-w-2xl text-base text-muted">
+          I’m currently looking for new ones and would love to learn more about
+          yours. I’m comfortable working alone or alongside your team.
+        </p>
+      </div>
+      <ul
+        class="grid gap-x-[var(--container-padding)] gap-y-5 sm:grid-cols-2 md:gap-y-12 lg:grid-cols-3">
+        <li>
+          <h3 class="text-lg font-medium">Freelance</h3>
+          <p class="mb-2 text-sm font-medium text-primary">
+            Apr 2018 <span class="opacity-50">&ndash;</span> Present
+          </p>
+          <p class="text-sm text-muted">UI Designer & Front-end Developer</p>
+        </li>
+        <li>
+          <h3 class="text-lg font-medium">Simple Focus</h3>
+          <p class="mb-2 text-sm font-medium text-primary">
+            Nov 2015 <span class="opacity-50">&ndash;</span> Apr 2018
+          </p>
+          <p class="text-sm text-muted">UI Designer & Front-end Developer</p>
+        </li>
+        <li>
+          <h3 class="text-lg font-medium">Anonyome Labs, Inc.</h3>
+          <p class="mb-2 text-sm font-medium text-primary">
+            Aug 2016 <span class="opacity-50">&ndash;</span> Feb 2017
+          </p>
+          <p class="text-sm text-muted">Product Designer</p>
+        </li>
+        <li>
+          <h3 class="text-lg font-medium">Chattanooga Public Library</h3>
+          <p class="mb-2 text-sm font-medium text-primary">
+            Apr 2014 <span class="opacity-50">&ndash;</span> Nov 2015
+          </p>
+          <p class="text-sm text-muted">
+            Graphic Designer & Front-end Developer
+          </p>
+        </li>
+        <li>
+          <h3 class="text-lg font-medium">Fillauer Companies, Inc.</h3>
+          <p class="mb-2 text-sm font-medium text-primary">
+            May 2011 <span class="opacity-50">&ndash;</span> Apr 2014
+          </p>
+          <p class="text-sm text-muted">
+            Graphic Designer & Front-end Developer
+          </p>
+        </li>
+      </ul>
+
+      <CTALink
+        href="/assets/docs/Kyle-Gordy-Resume.pdf"
+        icon="arrow-down"
+        download="Kyle Gordy - Resume">
+        Download Resume
+      </CTALink>
+    </section>
+  </main>
 </SiteLayout>
+
+<style>
+  .numbered-list li {
+    counter-increment: index 1;
+  }
+
+  .numbered-list h3::before {
+    content: counter(index);
+    @apply text-primary;
+  }
+
+  .numbered-list span::before {
+    content: "—";
+    @apply ml-1 mr-2 text-primary opacity-50;
+  }
+</style>

@@ -3,3 +3,4 @@
 
 export const SITE_TITLE = "Kyle Gordy";
 export const SITE_DESCRIPTION = "Welcome to my website!";
+export const CHAT_BOOKING_URL = "https://calendly.com/kylegordy/30min";

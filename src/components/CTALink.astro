@@ -1,0 +1,32 @@
+---
+import Icon from "../components/Icon.astro";
+export interface Props extends astroHTML.JSX.AnchorHTMLAttributes {}
+const { href, class: className, icon = "arrow-right", ...props } = Astro.props;
+
+const verticalIcon = icon === "arrow-down";
+let animationDirection;
+
+if (verticalIcon == true) {
+  animationDirection = "group-hover:translate-y-1";
+} else {
+  animationDirection = "group-hover:translate-x-1";
+}
+
+const classList =
+  `text-primary group-hover:text-primary-dark transition-all ease-in-out ` +
+  animationDirection;
+---
+
+<a
+  href={href}
+  class:list={[
+    className,
+    "font-bold hover:text-primary focus:text-primary transition-colors ease-in-out text-lg group",
+  ]}
+  {...props}>
+  <span
+    class="inline-block border-b-2 border-primary pb-1 group-hover:border-primary-dark">
+    <slot />
+  </span>
+  <Icon icon={icon} class={classList} />
+</a>
