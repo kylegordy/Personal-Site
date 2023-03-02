@@ -8,9 +8,13 @@ const isActive = href === Astro.url.pathname.replace(/\/$/, "/");
 <a
   href={href}
   class:list={[
-    "font-mono text-sm text-primary focus:text-primary hover:text-primary hover:underline focus:underline underline-offset-8 transition-colors decoration-transparent hover:decoration-primary-dark",
+    "font-mono text-sm text-primary focus:text-primary hover:text-primary hover:underline focus:underline underline-offset-8 transition-colors hover:decoration-primary-dark",
     {
       "underline decoration-primary-dark": isActive,
+    },
+
+    {
+      "decoration-transparent": isActive == false,
     },
   ]}
   {...props}>
