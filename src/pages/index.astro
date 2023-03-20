@@ -2,29 +2,15 @@
 import SiteLayout from "../layouts/SiteLayout.astro";
 import Triangle from "../components/Triangle.astro";
 import CTALink from "../components/CTALink.astro";
-import FeaturedProjects from "../components/FeaturedProjects.astro";
-import { CHAT_BOOKING_URL } from "../config";
 ---
 
-<SiteLayout title="UI Designer & Frontend Developer">
+<SiteLayout title="About">
   <main>
-    <!-- Hero -->
     <section
-      class="container grid items-center gap-[var(--container-padding)] pb-[calc(var(--container-padding)*1.5)] lg:grid-cols-[1fr,40%] lg:py-0">
-      <div>
-        <h2 class="mb-4 text-3xl font-bold lg:mb-7">
-          I build hard-working websites & apps.
-        </h2>
-        <p class="text-base text-muted lg:mb-7">
-          Hi, I’m Kyle 👋 I’m a multifaceted developer/designer with 10+ years
-          of experience. I’m passionate about building impactful, and accessible
-          products folks enjoy using.
-        </p>
-      </div>
-
+      class="container mt-6 grid items-start gap-[var(--container-padding)] p-[var(--container-padding)] pt-0 md:grid-cols-[min(35%,500px),1fr] lg:items-center xl:mt-0">
       <!-- Moody Portrait -->
       <div
-        class="relative z-10 order-first max-w-[250px] overflow-hidden rounded-4xl rounded-br-none outline outline-1 outline-offset-[-1px] outline-border lg:order-none lg:max-w-[500px] lg:place-self-end">
+        class="relative z-10 order-first max-w-[250px] overflow-hidden rounded-4xl rounded-br-none border border-border md:max-w-[500px] lg:order-none lg:place-self-start">
         <img
           class="relative z-10"
           src="https://res.cloudinary.com/drl4zairb/image/upload/w_500,h_750,c_fill,g_face,q_auto:eco,f_auto,dpr_1/v1667341669/moody-portrait_tqbrou.png"
@@ -39,27 +25,194 @@ import { CHAT_BOOKING_URL } from "../config";
         />
 
         <Triangle
-          class="[--size:min(35vw,650px)] absolute bottom-0 right-0 text-primary z-0"
+          class="[--size:300px] lg:[--size:min(35vw,625px)] absolute bottom-0 right-0 text-primary z-0"
         />
 
         <Triangle
           class="[--size:min(15vw,80px)] absolute bottom-0 right-0 text-primary z-20"
         />
       </div>
+
+      <div class="max-w-xl">
+        <h2 class="mb-4 text-3xl font-bold lg:mb-7">
+          Part Designer, <br />Part Developer
+        </h2>
+        <p class="mb-4 text-base text-muted lg:mb-7">
+          I'm a multifaceted designer/developer with 10+ years of experience. I
+          currently work remotely in my hometown of Chattanooga, TN.
+        </p>
+        <p class="mb-4 text-base text-muted lg:mb-7">
+          I'm a lifelong learner, always eager to pick up new skills and
+          techniques to build better experiences. This curiosity has led me to
+          work on a diverse set of products/industries.
+        </p>
+        <p class="mb-4 text-base text-muted lg:mb-7">
+          I originally got my degree in traditional print-based Graphic Design.
+          However, after graduation, I transitioned to building digital
+          products. I love the ever-evolving nature of them.
+        </p>
+        <p class="mb-4 text-base text-muted lg:mb-7">
+          Over the last decade, I've witnessed how almost every aspect of
+          building digital products has changed. We've never had a better
+          understanding of how to create effective, impactful, and accessible
+          products then we do right now.
+        </p>
+      </div>
     </section>
 
-    <!-- Featured Projects -->
-    <FeaturedProjects />
-
-    <!-- Help CTA -->
     <section
-      class="container py-[calc(var(--container-padding)*2)] md:py-[var(--container-padding)]">
-      <h2 class="mb-3 text-2xl font-bold md:mb-4">Need help with a project?</h2>
-      <p class="mb-4 max-w-2xl text-base text-muted md:mb-6">
-        I’m currently looking for new ones and would love to learn more about
-        yours. I’m comfortable working alone or alongside your team.
-      </p>
-      <CTALink href={CHAT_BOOKING_URL}>Schedule a Call</CTALink>
+      class="container p-0 sm:p-[calc(var(--container-padding)_/_2.6)] sm:py-0">
+      <div
+        class="grid gap-[var(--container-padding)] rounded-b-5xl bg-page-offset px-[var(--container-padding)] py-[calc(var(--container-padding)*1.5)] sm:p-[calc(var(--container-padding)_/_1.6)] md:grid-cols-2">
+        <div class="max-w-xl">
+          <h2 class="mb-5 text-2xl font-bold md:mb-11">Main Skills</h2>
+          <ol class="numbered-list grid gap-5 md:gap-11">
+            <li>
+              <h3 class="mb-1 text-lg font-medium sm:mb-2">
+                <span>User Interface Design</span>
+              </h3>
+              <p class="max-w-2xl text-base text-muted">
+                Creating a great UI isn't about following trends and adding
+                flash; it's about understanding your users and their goals, then
+                getting out of their way.
+              </p>
+            </li>
+            <li>
+              <h3 class="mb-1 text-lg font-medium sm:mb-2">
+                <span>Frontend Development</span>
+              </h3>
+              <p class="max-w-2xl text-base text-muted">
+                No amount of planning, marketing, or UX can fix a slow,
+                non-responsive build. Your product lives or dies by the
+                underlining code choices powering your frontend.
+              </p>
+            </li>
+            <li>
+              <h3 class="mb-1 text-lg font-medium sm:mb-2">
+                <span>Accessibility</span>
+              </h3>
+              <p class="max-w-2xl text-base text-muted">
+                It's three times more difficult/expensive to add after your
+                product is built (or after a lawsuit). Build testing and remedy
+                into your product from day one.
+              </p>
+            </li>
+          </ol>
+        </div>
+        <hr class="border-border md:hidden" />
+        <div class="max-w-xl">
+          <h2 class="mb-5 text-2xl font-bold md:mb-11">Values</h2>
+          <ol class="numbered-list grid gap-5 md:gap-11">
+            <li>
+              <h3 class="mb-1 text-lg font-medium sm:mb-2">
+                <span>Keep it Simple</span>
+              </h3>
+              <p class="max-w-2xl text-base text-muted">
+                Simplicity is not a preference; it's a competitive advantage. If
+                something can be simplified, it can be understood and adopted
+                more easily. Friction is the enemy.
+              </p>
+            </li>
+            <li>
+              <h3 class="mb-1 text-lg font-medium sm:mb-2">
+                <span>Code is the Final Design</span>
+              </h3>
+              <p class="max-w-2xl text-base text-muted">
+                The final product isn't a Figma file; it's the bundle of code
+                the end-user experiences. Bridging the gap between design and
+                dev teams is crucial to ship great products.
+              </p>
+            </li>
+            <li>
+              <h3 class="mb-1 text-lg font-medium sm:mb-2">
+                <span>Never Not Learning</span>
+              </h3>
+              <p class="max-w-2xl text-base text-muted">
+                Everything is constantly changing; what worked yesterday might
+                not work today. Learn with every new project and be open to
+                change.
+              </p>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="container grid gap-[min(var(--container-padding),3.125rem)] py-[calc(var(--container-padding)*2)] md:py-[var(--container-padding)]">
+      <div>
+        <h2 class="mb-3 text-2xl font-bold md:mb-4">Experience</h2>
+        <p class="max-w-2xl text-base text-muted">
+          Since 2011, I’ve worked with companies, big and small, to build
+          effective, impactful, and accessible websites and apps.
+        </p>
+      </div>
+      <ul
+        class="grid gap-x-[var(--container-padding)] gap-y-5 sm:grid-cols-2 md:gap-y-12 lg:grid-cols-3">
+        <li>
+          <h3 class="text-lg font-medium">Freelance</h3>
+          <p class="mb-2 text-sm font-medium text-primary">
+            Apr 2018 <span class="opacity-50">&ndash;</span> Present
+          </p>
+          <p class="text-sm text-muted">UI Designer & Front-end Developer</p>
+        </li>
+        <li>
+          <h3 class="text-lg font-medium">Simple Focus</h3>
+          <p class="mb-2 text-sm font-medium text-primary">
+            Nov 2015 <span class="opacity-50">&ndash;</span> Apr 2018
+          </p>
+          <p class="text-sm text-muted">UI Designer & Front-end Developer</p>
+        </li>
+        <li>
+          <h3 class="text-lg font-medium">Anonyome Labs, Inc.</h3>
+          <p class="mb-2 text-sm font-medium text-primary">
+            Aug 2016 <span class="opacity-50">&ndash;</span> Feb 2017
+          </p>
+          <p class="text-sm text-muted">Product Designer</p>
+        </li>
+        <li>
+          <h3 class="text-lg font-medium">Chattanooga Public Library</h3>
+          <p class="mb-2 text-sm font-medium text-primary">
+            Apr 2014 <span class="opacity-50">&ndash;</span> Nov 2015
+          </p>
+          <p class="text-sm text-muted">
+            Graphic Designer & Front-end Developer
+          </p>
+        </li>
+        <li>
+          <h3 class="text-lg font-medium">Fillauer Companies, Inc.</h3>
+          <p class="mb-2 text-sm font-medium text-primary">
+            May 2011 <span class="opacity-50">&ndash;</span> Apr 2014
+          </p>
+          <p class="text-sm text-muted">
+            Graphic Designer & Front-end Developer
+          </p>
+        </li>
+      </ul>
+
+      <CTALink
+        class="w-max"
+        href="/assets/docs/Kyle-Gordy-Resume.pdf"
+        icon="arrow-down"
+        download="Kyle Gordy - Resume">
+        Download Resume
+      </CTALink>
     </section>
   </main>
 </SiteLayout>
+
+<style>
+  .numbered-list li {
+    counter-increment: index 1;
+  }
+
+  .numbered-list h3::before {
+    content: counter(index);
+    @apply text-primary;
+  }
+
+  .numbered-list span::before {
+    content: "—";
+    @apply ml-1 mr-2 text-primary opacity-50;
+  }
+</style>

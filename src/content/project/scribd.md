@@ -1,6 +1,6 @@
 ---
 sortOrder: 2
-title: Scribd
+title: Scribd Technology
 role: UI Design, Frontend Dev
 color: "#1E7B85"
 slug: scribd-technology
