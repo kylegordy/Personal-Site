@@ -2,7 +2,9 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
     <title>Kyle Gordy &ndash; Selected Work</title>
     <link rel="stylesheet" href="src/reset.css" />
     <link rel="stylesheet" href="src/reveal.css" />
@@ -21,7 +23,8 @@
                 alt="Kyle Gordy Logo"
                 width="250"
                 height="341"
-                style="max-width: 40vmin" />
+                style="max-width: 40vmin"
+                data-prevent-swipe />
             </div>
             <footer class="footer">
               <h1>Selected Work</h1>
@@ -245,7 +248,7 @@
             </div>
             <footer class="footer">
               <h1>Post Stroke</h1>
-              <p>Branding, Design & Development</p>
+              <p>Design & Development</p>
             </footer>
           </div>
         </section>
@@ -266,7 +269,9 @@
       Reveal.initialize({
         width: 1920,
         height: 1080,
+        hash: true,
         disableLayout: true,
+        overview: false,
       });
     </script>
   </body>
