@@ -4,10 +4,10 @@ export interface Props {
 }
 
 const { title } = Astro.props;
-import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
+import { SITE_TITLE, SITE_DESCRIPTION, SITE_OG_IMG } from "../config";
+import { SEO } from "astro-seo";
 import "../styles/base.css";
 import "@fontsource/sora";
-// import stylesUrl from "@fontsource/sora/variable.css?url";
 import "@fontsource/sora/variable.css";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
@@ -18,16 +18,21 @@ import Footer from "../components/Footer.astro";
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
-    <!-- <link
-      rel="preload"
-      href={stylesUrl}
-      as="font"
-      type="font/woff2"
-      crossorigin="anonymous"
-    /> -->
-    <meta name="generator" content={Astro.generator} />
-    <title>{SITE_TITLE} &ndash; {title}</title>
-    <meta name="description" content={SITE_DESCRIPTION} />
+
+    <SEO
+      charset="UTF-8"
+      title={title}
+      titleTemplate="%s - Kyle Gordy"
+      titleDefault="Kyle Gordy - UI Designer & Frontend Web Developer"
+      description={SITE_DESCRIPTION}
+      openGraph={{
+        basic: {
+          title: `${SITE_DESCRIPTION}`,
+          type: "A type.",
+          image: `${SITE_OG_IMG}`,
+        },
+      }}
+    />
   </head>
   <body class="grid min-h-screen grid-rows-[max-content,1fr,max-content]">
     <Header title={SITE_TITLE} />
