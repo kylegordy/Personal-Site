@@ -1,0 +1,78 @@
+---
+
+---
+
+<button
+  id="themeToggle"
+  class="relative overflow-hidden scale-[0.8] md:scale-100 rounded-full border border-border flex items-center justify-center w-[2.375rem] h-[2.375rem]"
+>
+  <span class="sr-only">Toggle <span>Dark</span><span>Light</span> Theme</span>
+
+  <svg
+    class="moon absolute transition-all duration-500 ease-in-out opacity-70 fill-muted"
+    width="18"
+    height="18"
+    viewBox="0 0 18 18"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M10.309 0C5.1651 0 1 4.02991 1 9C1 13.9701 5.1651 18 10.309 18C12.833 18 15.1197 17.0277 16.7982 15.4527C17.0065 15.2558 17.0606 14.9504 16.9273 14.7013C16.7941 14.4522 16.5067 14.3116 16.2193 14.3598C15.8111 14.4281 15.3946 14.4643 14.9656 14.4643C10.9296 14.4643 7.65583 11.2982 7.65583 7.39286C7.65583 4.74911 9.15527 2.44688 11.3753 1.23348C11.6293 1.09286 11.7585 0.811607 11.696 0.538393C11.6335 0.265179 11.3919 0.0602679 11.1004 0.0361608C10.838 0.0160715 10.5756 0.0040178 10.309 0.0040178V0Z"
+    ></path>
+  </svg>
+
+  <svg
+    class="sun absolute transition-all duration-500 ease-in-out opacity-70 fill-muted"
+    width="18"
+    height="18"
+    viewBox="0 0 18 18"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M12.709 0.0422074C12.8848 0.116036 13.0113 0.274239 13.0465 0.460567L13.7461 4.25393L17.5395 4.95002C17.7258 4.98518 17.884 5.11174 17.9578 5.28752C18.0317 5.4633 18.0106 5.66369 17.9016 5.82189L15.7113 9.00002L17.9016 12.1746C18.0106 12.3328 18.0317 12.5332 17.9578 12.709C17.884 12.8848 17.7258 13.0113 17.5395 13.0465L13.7461 13.7461L13.0465 17.5395C13.0113 17.7258 12.8848 17.884 12.709 17.9578C12.5332 18.0317 12.3328 18.0106 12.1746 17.9016L9.00002 15.7113L5.82541 17.9016C5.66721 18.0106 5.46682 18.0317 5.29104 17.9578C5.11525 17.884 4.98869 17.7258 4.95354 17.5395L4.25393 13.7461L0.460567 13.0465C0.274239 13.0113 0.116036 12.8848 0.0422074 12.709C-0.0316207 12.5332 -0.010527 12.3328 0.0984574 12.1746L2.28869 9.00002L0.0984574 5.82541C-0.010527 5.66721 -0.0316207 5.46682 0.0422074 5.29104C0.116036 5.11525 0.274239 4.98869 0.460567 4.95354L4.25393 4.25393L4.95354 0.460567C4.98869 0.274239 5.11525 0.116036 5.29104 0.0422074C5.46682 -0.0316207 5.66721 -0.010527 5.82541 0.0984574L9.00002 2.28869L12.1746 0.0984574C12.3328 -0.010527 12.5332 -0.0316207 12.709 0.0422074ZM5.62502 9.00002C5.62502 8.10491 5.9806 7.24647 6.61353 6.61353C7.24647 5.9806 8.10491 5.62502 9.00002 5.62502C9.89513 5.62502 10.7536 5.9806 11.3865 6.61353C12.0194 7.24647 12.375 8.10491 12.375 9.00002C12.375 9.89513 12.0194 10.7536 11.3865 11.3865C10.7536 12.0194 9.89513 12.375 9.00002 12.375C8.10491 12.375 7.24647 12.0194 6.61353 11.3865C5.9806 10.7536 5.62502 9.89513 5.62502 9.00002ZM13.5 9.00002C13.5 7.80655 13.0259 6.66195 12.182 5.81804C11.3381 4.97413 10.1935 4.50002 9.00002 4.50002C7.80655 4.50002 6.66195 4.97413 5.81804 5.81804C4.97413 6.66195 4.50002 7.80655 4.50002 9.00002C4.50002 10.1935 4.97413 11.3381 5.81804 12.182C6.66195 13.0259 7.80655 13.5 9.00002 13.5C10.1935 13.5 11.3381 13.0259 12.182 12.182C13.0259 11.3381 13.5 10.1935 13.5 9.00002Z"
+    ></path>
+  </svg>
+</button>
+
+<style>
+  html.dark .sun {
+    transform: translateY(18px) scale(0.25);
+    opacity: 0;
+  }
+
+  html:not(.dark) .moon {
+    transform: translateY(-18px) scale(0.25);
+    opacity: 0;
+  }
+</style>
+
+<script is:inline>
+  const theme = (() => {
+    if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
+      return localStorage.getItem("theme");
+    }
+    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      return "dark";
+    }
+    return "light";
+  })();
+
+  if (theme === "light") {
+    document.documentElement.classList.remove("dark");
+  } else {
+    document.documentElement.classList.add("dark");
+  }
+
+  window.localStorage.setItem("theme", theme);
+
+  const handleToggleClick = () => {
+    const element = document.documentElement;
+    element.classList.toggle("dark");
+
+    const isDark = element.classList.contains("dark");
+    localStorage.setItem("theme", isDark ? "dark" : "light");
+  };
+
+  document
+    .getElementById("themeToggle")
+    .addEventListener("click", handleToggleClick);
+</script>

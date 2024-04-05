@@ -40,10 +40,9 @@
       3.75rem
     ); /* 28 - 60 */
 
-    /* Grayscale */
+    /* Color Palette */
     --color-white: 0deg 0% 100%;
 
-    /* Custom Colors */
     --color-ash-900: 40deg 1% 5%;
     --color-ash-800: 40deg 4% 8%;
     --color-ash-700: 40deg 4% 16%;
@@ -60,9 +59,9 @@
     --color-amber: 43deg 100% 69%;
     --color-amber-dark: 43deg 100% 49%;
 
-    /* Primary Color */
-    --color-primary: var(--color-saffron);
-    --color-primary-dark: var(--color-dark);
+    /* --------------- */
+    /*  Light Theme    */
+    /* --------------- */
 
     /* Page Backgrounds */
     --color-page: var(--color-white);
@@ -76,31 +75,36 @@
 
     /* Muted Text */
     --color-muted: var(--color-ash-500);
+
+    /* Primary Color */
+    --color-primary: var(--color-saffron);
+    --color-primary-dark: var(--color-saffron-dark);
   }
 
-  /* Dark Theme */
-  @media (prefers-color-scheme: dark) {
-    :root {
-      /* Page Backgrounds */
-      --color-page: var(--color-ash-900);
-      --color-page-offset: var(--color-ash-800);
+  /* --------------- */
+  /*  Dark Theme     */
+  /* --------------- */
 
-      /* Border */
-      --color-border: var(--color-ash-700);
+  html.dark {
+    /* Page Backgrounds */
+    --color-page: var(--color-ash-900);
+    --color-page-offset: var(--color-ash-800);
 
-      /* Body Text */
-      --color-body: var(--color-white);
+    /* Border */
+    --color-border: var(--color-ash-700);
 
-      /* Muted Text */
-      --color-muted: var(--color-ash-300);
+    /* Body Text */
+    --color-body: var(--color-white);
 
-      /* Primary Color */
-      --color-primary: var(--color-amber);
-      --color-primary-dark: var(--color-amber-dark);
-    }
+    /* Muted Text */
+    --color-muted: var(--color-ash-300);
+
+    /* Primary Color */
+    --color-primary: var(--color-amber);
+    --color-primary-dark: var(--color-amber-dark);
   }
 
   .btn-link {
-    @apply font-bold pb-1 border-b-2 border-primary hover:text-primary focus:text-primary hover:border-primary-dark focus:border-primary-dark transition-colors;
+    @apply border-b-2 border-primary pb-1 font-bold transition-colors hover:border-primary-dark hover:text-primary focus:border-primary-dark focus:text-primary;
   }
 }
