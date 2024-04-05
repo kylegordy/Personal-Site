@@ -8,10 +8,12 @@ import YearsExperience from "../components/yearsExperience.astro";
 <SiteLayout title="About">
   <main>
     <section
-      class="container mt-6 grid items-start gap-[var(--container-padding)] p-[var(--container-padding)] pt-0 md:grid-cols-[min(35%,500px),1fr] lg:items-center xl:mt-0">
+      class="container mt-2.5 grid items-start gap-[var(--container-padding)] p-[var(--container-padding)] pt-0 md:mt-6 md:grid-cols-[min(35%,500px),1fr] lg:items-center xl:mt-0"
+    >
       <!-- Moody Portrait -->
       <div
-        class="relative z-10 order-first max-w-[250px] overflow-hidden rounded-4xl rounded-br-none border border-border md:max-w-[500px] lg:order-none lg:place-self-start">
+        class="relative z-10 order-first mx-auto max-w-[275px] overflow-hidden rounded-4xl rounded-br-none border border-border sm:mx-0 sm:max-w-[300px] md:max-w-[500px] lg:order-none lg:place-self-start"
+      >
         <img
           class="relative z-10"
           src="https://res.cloudinary.com/drl4zairb/image/upload/w_500,h_750,c_fill,g_face,q_auto:eco,f_auto,dpr_1/v1679294928/moody-portrait-v2_epbe4v.png"
@@ -26,20 +28,20 @@ import YearsExperience from "../components/yearsExperience.astro";
         />
 
         <Triangle
-          class="[--size:300px] lg:[--size:min(35vw,625px)] absolute bottom-0 right-0 text-primary z-0"
+          class="absolute bottom-0 right-0 z-0 text-primary [--size:300px] lg:[--size:min(35vw,625px)]"
         />
 
         <Triangle
-          class="[--size:min(15vw,80px)] absolute bottom-0 right-0 text-primary z-20"
+          class="absolute bottom-0 right-0 z-20 text-primary [--size:min(15vw,80px)]"
         />
       </div>
 
       <div class="max-w-xl">
         <h2 class="mb-4 text-3xl font-bold lg:mb-7">
-          UI Designer<br />Who Codes
+          UI/UX Designer<br />Who Codes
         </h2>
         <p class="mb-4 text-base text-muted lg:mb-7">
-          I'm a multifaceted UI Designer/Frontend Developer with <YearsExperience
+          I'm a multifaceted Designer/Frontend Developer with <YearsExperience
           /> years of experience. I currently work remotely in my hometown of Chattanooga,
           TN.
         </p>
@@ -63,15 +65,17 @@ import YearsExperience from "../components/yearsExperience.astro";
     </section>
 
     <section
-      class="container p-0 sm:p-[calc(var(--container-padding)_/_2.6)] sm:py-0">
+      class="container p-0 sm:p-[calc(var(--container-padding)_/_2.6)] sm:py-0"
+    >
       <div
-        class="grid gap-[var(--container-padding)] rounded-b-5xl bg-page-offset px-[var(--container-padding)] py-[calc(var(--container-padding)*1.5)] sm:p-[calc(var(--container-padding)_/_1.6)] md:grid-cols-2">
+        class="grid gap-[var(--container-padding)] rounded-b-5xl bg-page-offset px-[var(--container-padding)] py-[calc(var(--container-padding)*1.5)] sm:p-[calc(var(--container-padding)_/_1.6)] md:grid-cols-2"
+      >
         <div class="max-w-xl">
           <h2 class="mb-5 text-2xl font-bold md:mb-11">Main Skills</h2>
           <ol class="numbered-list grid gap-5 md:gap-11">
             <li>
               <h3 class="mb-1 text-lg font-medium sm:mb-2">
-                <span>User Interface Design</span>
+                <span>UI/UX Design</span>
               </h3>
               <p class="max-w-2xl text-base text-muted">
                 Creating a great UI isn't about following trends and adding
@@ -141,7 +145,8 @@ import YearsExperience from "../components/yearsExperience.astro";
     </section>
 
     <section
-      class="container grid gap-[min(var(--container-padding),3.125rem)] py-[calc(var(--container-padding)*2)] md:py-[var(--container-padding)]">
+      class="container grid gap-[min(var(--container-padding),3.125rem)] py-[calc(var(--container-padding)*2)] md:py-[var(--container-padding)]"
+    >
       <div>
         <h2 class="mb-3 text-2xl font-bold md:mb-4">Experience</h2>
         <p class="max-w-2xl text-base text-muted">
@@ -151,7 +156,8 @@ import YearsExperience from "../components/yearsExperience.astro";
         </p>
       </div>
       <ul
-        class="grid gap-x-[var(--container-padding)] gap-y-5 md:grid-cols-2 md:gap-y-12">
+        class="grid gap-x-[var(--container-padding)] gap-y-5 md:grid-cols-2 md:gap-y-12"
+      >
         <li>
           <h3 class="text-lg font-medium">Freelance & Contract</h3>
           <p class="text-sm font-medium text-primary">
@@ -254,7 +260,8 @@ import YearsExperience from "../components/yearsExperience.astro";
         class="w-max"
         href="/assets/docs/Kyle-Gordy-Resume.pdf"
         icon="arrow-down"
-        download="Kyle Gordy - Resume">
+        download="Kyle Gordy - Resume"
+      >
         Download Resume
       </CTALink>
     </section>

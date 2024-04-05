@@ -3,11 +3,12 @@ import Triangle from "./Triangle.astro";
 import { SITE_TITLE } from "../config";
 ---
 
-<div class="group flex items-center gap-3.5 font-bold">
+<div class="group flex items-center gap-2.5 font-bold md:gap-3.5">
   <div
-    class="relative aspect-square w-10 rounded-lg rounded-br-none border-2 border-primary">
+    class="relative aspect-square w-8 rounded-lg rounded-br-none border-2 border-primary md:w-10"
+  >
     <Triangle
-      class="[--size:10px] absolute bottom-0 right-0 origin-bottom-right text-primary transition-transform ease-in-out group-hover:scale-[1.75]"
+      class="absolute bottom-0 right-0 origin-bottom-right text-primary transition-transform duration-500 ease-in-out [--size:10px] group-hover:scale-[1.5] md:[--size:16px]"
     />
   </div>
   <h1 class="text-lg">{SITE_TITLE}</h1>

@@ -5,11 +5,15 @@ import ThemeToggleBtn from "./ThemeToggleBtn.astro";
 ---
 
 <header
-  class="container flex items-center justify-between gap-2 py-5 md:py-10 lg:py-16">
-  <a class="transition-colors hover:text-primary focus:text-primary" href="/">
+  class="container flex items-center justify-between gap-2 py-5 md:py-10 lg:py-16"
+>
+  <a
+    class="transition-colors duration-500 hover:text-primary focus:text-primary"
+    href="/"
+  >
     <Logo />
   </a>
-  <nav class="flex gap-5 lg:gap-12">
+  <nav class="flex items-center gap-3 sm:gap-6 md:gap-8 lg:gap-12">
     <!-- <HeaderFooterLink href="/">Projects</HeaderFooterLink> -->
     <HeaderFooterLink href="/">About</HeaderFooterLink>
     <HeaderFooterLink href="/contact">Contact</HeaderFooterLink>
