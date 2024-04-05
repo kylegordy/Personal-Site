@@ -67,53 +67,56 @@
 
     --color-amber: 43deg 100% 69%;
     --color-amber-dark: 43deg 100% 49%;
-
-    /* --------------- */
-    /*  Light Theme    */
-    /* --------------- */
-
-    /* Page Backgrounds */
-    --color-page: var(--color-white);
-    --color-page-offset: var(--color-ash-100);
-
-    /* Border */
-    --color-border: var(--color-ash-200);
-
-    /* Body Text */
-    --color-body: var(--color-ash-900);
-
-    /* Muted Text */
-    --color-muted: var(--color-ash-500);
-
-    /* Primary Color */
-    --color-primary: var(--color-saffron);
-    --color-primary-dark: var(--color-saffron-dark);
-  }
-
-  /* --------------- */
-  /*  Dark Theme     */
-  /* --------------- */
-
-  html.dark {
-    /* Page Backgrounds */
-    --color-page: var(--color-ash-900);
-    --color-page-offset: var(--color-ash-800);
-
-    /* Border */
-    --color-border: var(--color-ash-700);
-
-    /* Body Text */
-    --color-body: var(--color-white);
-
-    /* Muted Text */
-    --color-muted: var(--color-ash-300);
-
-    /* Primary Color */
-    --color-primary: var(--color-amber);
-    --color-primary-dark: var(--color-amber-dark);
   }
 
   .btn-link {
     @apply border-b-2 border-primary pb-1 font-bold transition-colors hover:border-primary-dark hover:text-primary focus:border-primary-dark focus:text-primary;
   }
+}
+
+/* ----------------------- */
+/*  Light Theme (Default)  */
+/* ----------------------- */
+
+:root,
+html[data-theme="light"] {
+  /* Page Backgrounds */
+  --color-page: var(--color-white);
+  --color-page-offset: var(--color-ash-100);
+
+  /* Border */
+  --color-border: var(--color-ash-200);
+
+  /* Body Text */
+  --color-body: var(--color-ash-900);
+
+  /* Muted Text */
+  --color-muted: var(--color-ash-500);
+
+  /* Primary Color */
+  --color-primary: var(--color-saffron);
+  --color-primary-dark: var(--color-saffron-dark);
+}
+
+/* ----------------------- */
+/*  Dark Theme (Default)  */
+/* ----------------------- */
+
+html[data-theme="dark"] {
+  /* Page Backgrounds */
+  --color-page: var(--color-ash-900);
+  --color-page-offset: var(--color-ash-800);
+
+  /* Border */
+  --color-border: var(--color-ash-700);
+
+  /* Body Text */
+  --color-body: var(--color-white);
+
+  /* Muted Text */
+  --color-muted: var(--color-ash-300);
+
+  /* Primary Color */
+  --color-primary: var(--color-amber);
+  --color-primary-dark: var(--color-amber-dark);
 }
