@@ -27,13 +27,13 @@ import Footer from "../components/Footer.astro";
     <SEO
       charset="UTF-8"
       title={title}
-      titleTemplate="%s - Kyle Gordy"
-      titleDefault="Kyle Gordy - UI/UX Designer Who Codes"
+      titleTemplate="%s – Kyle Gordy"
+      titleDefault="Kyle Gordy – `${SITE_DESCRIPTION}`"
       description={SITE_DESCRIPTION}
       openGraph={{
         basic: {
-          title: "Kyle Gordy - UI/UX Designer Who Codes",
-          type: "A type.",
+          title: "Kyle Gordy – " + `${SITE_DESCRIPTION}`,
+          type: "website",
           image: `${SITE_OG_IMG}`,
         },
         optional: {
