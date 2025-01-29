@@ -8,7 +8,7 @@ import YearsExperience from "../components/yearsExperience.astro";
 <SiteLayout title="About">
   <main>
     <section
-      class="container mt-2.5 grid items-start gap-[var(--container-padding)] p-[var(--container-padding)] pt-0 md:mt-6 md:grid-cols-[min(35%,500px),1fr] lg:items-center xl:mt-0"
+      class="container mt-2.5 grid items-start gap-[var(--container-padding)] p-[var(--container-padding)] pt-0 md:mt-6 md:grid-cols-[min(35%,500px)1fr] lg:items-center xl:mt-0"
     >
       <!-- Moody Portrait -->
       <div
@@ -164,7 +164,7 @@ import YearsExperience from "../components/yearsExperience.astro";
             UI Designer & Frontend Developer
           </p>
           <p class="mb-4 text-sm text-muted">
-            Apr 2018 <span class="opacity-50">&ndash;</span> Present
+            Apr 2018 <span class="text-current/70">&ndash;</span> Present
           </p>
           <p class="max-w-lg text-sm text-muted">
             Hired by Scribd to design and develop a website for their
@@ -182,7 +182,7 @@ import YearsExperience from "../components/yearsExperience.astro";
             Co-founder, Design & Strategy, Board Member
           </p>
           <p class="mb-4 text-sm text-muted">
-            Dec 2020 <span class="opacity-50">&ndash;</span> Present
+            Dec 2020 <span class="text-current/70">&ndash;</span> Present
           </p>
           <p class="max-w-lg text-sm text-muted">
             Co-founded Post Stroke, a 501(c)(3) nonprofit organization, whose
@@ -198,7 +198,7 @@ import YearsExperience from "../components/yearsExperience.astro";
             UI Designer & Frontend Developer
           </p>
           <p class="mb-4 text-sm text-muted">
-            Nov 2015 <span class="opacity-50">&ndash;</span> Apr 2018
+            Nov 2015 <span class="text-current/70">&ndash;</span> Apr 2018
           </p>
           <p class="max-w-lg text-sm text-muted">
             Designed and developed several client websites and apps. Worked
@@ -213,7 +213,7 @@ import YearsExperience from "../components/yearsExperience.astro";
           <h3 class="text-lg font-medium">Anonyome Labs</h3>
           <p class="text-sm font-medium text-primary">Product Designer</p>
           <p class="mb-4 text-sm text-muted">
-            Aug 2016 <span class="opacity-50">&ndash;</span> Feb 2017
+            Aug 2016 <span class="text-current/70">&ndash;</span> Feb 2017
           </p>
           <p class="max-w-lg text-sm text-muted">
             Spent six months embedded as an internal product designer, working
@@ -228,7 +228,7 @@ import YearsExperience from "../components/yearsExperience.astro";
           <h3 class="text-lg font-medium">Chattanooga Public Library</h3>
           <p class="text-sm font-medium text-primary">Product Designer</p>
           <p class="mb-4 text-sm text-muted">
-            Apr 2014 <span class="opacity-50">&ndash;</span> Nov 2015
+            Apr 2014 <span class="text-current/70">&ndash;</span> Nov 2015
           </p>
           <p class="max-w-lg text-sm text-muted">
             Maintained and visually refreshed the existing Drupal website. In
@@ -245,7 +245,7 @@ import YearsExperience from "../components/yearsExperience.astro";
             Graphic Designer & Frontend Developer
           </p>
           <p class="mb-4 text-sm text-muted">
-            May 2011 <span class="opacity-50">&ndash;</span> Apr 2014
+            May 2011 <span class="text-current/70">&ndash;</span> Apr 2014
           </p>
           <p class="max-w-lg text-sm text-muted">
             Designed and developed email marketing campaigns, digital ads, and
@@ -269,6 +269,8 @@ import YearsExperience from "../components/yearsExperience.astro";
 </SiteLayout>
 
 <style>
+  @reference "../styles/global.css";
+
   .numbered-list li {
     counter-increment: index 1;
   }
@@ -280,6 +282,6 @@ import YearsExperience from "../components/yearsExperience.astro";
 
   .numbered-list span::before {
     content: "—";
-    @apply ml-1 mr-2 text-primary opacity-50;
+    @apply ml-1 mr-2 text-primary/70;
   }
 </style>

@@ -1,0 +1,149 @@
+@import "tailwindcss";
+
+@theme {
+  /* Typography */
+  --font-sans: SoraVariable, Sora, ui-sans-serif, system-ui, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --leading-relaxed: 1.8;
+
+  --text-xs: clamp(0.75rem, calc(0.71rem + 0.16vw), 0.875rem); /* 12 - 14 */
+  --text-xs--line-height: 1.7;
+
+  --text-sm: clamp(0.875rem, calc(0.84rem + 0.16vw), 1rem); /* 14 - 16 */
+  --text-sm--line-height: 1.7;
+
+  --text-base: clamp(0.9375rem, calc(0.88rem + 0.24vw), 1.125rem); /* 15 - 18 */
+  --text-base--line-height: 1.7;
+
+  --text-lg: clamp(1.0625rem, calc(0.97rem + 0.41vw), 1.375rem); /* 17 - 22 */
+  --text-lg--line-height: 1.5;
+
+  --text-xl: clamp(1.25rem, calc(1.02rem + 0.98vw), 2rem); /* 20 - 32 */
+  --text-xl--line-height: 1.375;
+
+  --text-2xl: clamp(1.375rem, calc(0.95rem + 1.8vw), 2.75rem); /* 22 - 44 */
+  --text-2xl--line-height: 1.3;
+
+  --text-3xl: clamp(1.75rem, calc(1.14rem + 2.61vw), 3.75rem); /* 28 - 60 */
+  --text-3xl--line-height: 1.2;
+
+  /* Radius */
+  --radius-4xl: min(6vw, 3.125rem);
+  --radius-5xl: min(7vw, 6.25rem);
+
+  /* Color Palette */
+  --color-*: initial;
+
+  --color-amber-dark: hsl(43deg 100% 49%);
+
+  /* Page Backgrounds */
+  --color-page: var(--color-white);
+  --color-page-offset: var(--color-ash-100);
+
+  /* Border */
+  --color-border: var(--color-ash-200);
+
+  /* Body Text */
+  --color-body: var(--color-ash-900);
+
+  /* Muted Text */
+  --color-muted: var(--color-ash-500);
+
+  /* Primary Color */
+  --color-primary: var(--color-saffron);
+  --color-primary-dark: var(--color-saffron-dark);
+}
+
+@layer base {
+  :root {
+    --color-white: hsl(0deg 0% 100%);
+    --color-ash-900: hsl(40deg 1% 5%);
+    --color-ash-800: hsl(40deg 4% 8%);
+    --color-ash-700: hsl(40deg 4% 16%);
+    --color-ash-600: hsl(40deg 4% 26%);
+    --color-ash-500: hsl(40deg 4% 36%);
+    --color-ash-400: hsl(40deg 4% 50%);
+    --color-ash-300: hsl(40deg 4% 70%);
+    --color-ash-200: hsl(40deg 6% 90%);
+    --color-ash-100: hsl(40deg 12% 97%);
+
+    --color-saffron: hsl(14deg 100% 42%);
+    --color-saffron-dark: hsl(14deg 100% 29%);
+
+    --color-amber: hsl(43deg 100% 69%);
+
+    --container-width: 106.25rem; /* 1700px */
+    --container-padding-min: 5.5vw;
+    --container-padding-max: 150px;
+    --container-padding: min(
+      var(--container-padding-min),
+      var(--container-padding-min)
+    );
+
+    @media (min-width: theme("screens.sm")) {
+      --container-padding-min: 6vw !important;
+    }
+  }
+}
+
+@layer components {
+  .btn-link {
+    @apply border-b-2 border-primary pb-1 font-bold transition-colors hover:border-primary-dark hover:text-primary focus:border-primary-dark focus:text-primary;
+  }
+}
+
+@utility container {
+  width: 100%;
+  max-width: 106.25rem; /* 1700px */
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+}
+
+/* ----------------------- */
+/*  Light Theme (Default)  */
+/* ----------------------- */
+
+:root,
+html[data-theme="light"] {
+  /* Page Backgrounds */
+  --color-page: var(--color-white);
+  /* /* --color-page-offset: var(--color-ash-100); */
+
+  /* Border */
+  --color-border: var(--color-ash-200);
+
+  /* Body Text */
+  --color-body: var(--color-ash-900);
+
+  /* Muted Text */
+  --color-muted: var(--color-ash-500);
+
+  /* Primary Color */
+  --color-primary: var(--color-saffron);
+  --color-primary-dark: var(--color-saffron-dark);
+}
+
+/* ----------------------- */
+/*  Dark Theme             */
+/* ----------------------- */
+
+html[data-theme="dark"] {
+  /* Page Backgrounds */
+  --color-page: var(--color-ash-900);
+  --color-page-offset: var(--color-ash-800);
+
+  /* Border */
+  --color-border: var(--color-ash-700);
+
+  /* Body Text */
+  --color-body: var(--color-white);
+
+  /* Muted Text */
+  --color-muted: var(--color-ash-300);
+
+  /* Primary Color */
+  --color-primary: var(--color-amber);
+  --color-primary-dark: var(--color-amber-dark);
+}
