@@ -2,6 +2,9 @@
 import HeaderFooterLink from "./HeaderFooterLink.astro";
 import Logo from "./Logo.astro";
 import ThemeToggleBtn from "./ThemeToggleBtn.astro";
+
+const { pathname } = Astro.url;
+const isHome = pathname === "/" || pathname === "";
 ---
 
 <header
@@ -10,6 +13,7 @@ import ThemeToggleBtn from "./ThemeToggleBtn.astro";
   <a
     class="transition-colors duration-500 hover:text-primary focus:text-primary"
     href="/"
+    data-logo-active={isHome}
   >
     <Logo />
   </a>
@@ -20,3 +24,25 @@ import ThemeToggleBtn from "./ThemeToggleBtn.astro";
     <ThemeToggleBtn />
   </nav>
 </header>
+
+<script>
+  function preventLogoNavigation() {
+    const logo = document.querySelector<HTMLAnchorElement>('a[data-logo-active="true"]');
+
+    if (logo) {
+      // Clone and replace to remove old listeners
+      const newLogo = logo.cloneNode(true) as HTMLAnchorElement;
+      logo.parentNode?.replaceChild(newLogo, logo);
+
+      newLogo.addEventListener('click', (e) => {
+        e.preventDefault();
+      });
+    }
+  }
+
+  // Run on initial load
+  preventLogoNavigation();
+
+  // Re-run after view transitions
+  document.addEventListener('astro:page-load', preventLogoNavigation);
+</script>

@@ -18,7 +18,30 @@ const isActive = href === pathname || href === pathname.replace(/\/$/, "");
       "decoration-transparent": isActive == false,
     },
   ]}
+  data-active={isActive}
   {...props}
 >
   <slot />
 </a>
+
+<script>
+  function preventSamePageNavigation() {
+    const links = document.querySelectorAll<HTMLAnchorElement>('a[data-active="true"]');
+
+    links.forEach(link => {
+      // Clone and replace to remove old listeners
+      const newLink = link.cloneNode(true) as HTMLAnchorElement;
+      link.parentNode?.replaceChild(newLink, link);
+
+      newLink.addEventListener('click', (e) => {
+        e.preventDefault();
+      });
+    });
+  }
+
+  // Run on initial load
+  preventSamePageNavigation();
+
+  // Re-run after view transitions
+  document.addEventListener('astro:page-load', preventSamePageNavigation);
+</script>

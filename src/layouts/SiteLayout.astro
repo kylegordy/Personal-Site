@@ -6,6 +6,7 @@ export interface Props {
 const { title } = Astro.props;
 import { SITE_TITLE, SITE_DESCRIPTION, SITE_OG_IMG } from "../config";
 import { SEO } from "astro-seo";
+import { ViewTransitions } from "astro:transitions";
 import "../styles/global.css";
 import "@fontsource-variable/sora";
 import Header from "../components/Header.astro";
@@ -41,10 +42,77 @@ import Footer from "../components/Footer.astro";
         },
       }}
     />
+    <ViewTransitions />
   </head>
   <body class="grid min-h-screen grid-rows-[max-content_1fr_max-content]">
     <Header title={SITE_TITLE} />
     <slot />
     <Footer />
+
+    <script>
+      function initFadeInAnimations() {
+        // Check if user prefers reduced motion
+        const prefersReducedMotion = window.matchMedia(
+          "(prefers-reduced-motion: reduce)",
+        ).matches;
+
+        if (prefersReducedMotion) {
+          // Skip animations if user prefers reduced motion
+          return;
+        }
+
+        // Select all elements with fade-in class
+        const fadeElements = document.querySelectorAll(".fade-in");
+
+        // Create intersection observer
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                // Add visible class when element enters viewport
+                entry.target.classList.add("is-visible");
+                // Stop observing this element (animation only happens once)
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          {
+            // Trigger when 10% of element is visible
+            threshold: 0.1,
+            // Start animation slightly before element enters viewport
+            rootMargin: "0px 0px -50px 0px",
+          },
+        );
+
+        // Observe all fade-in elements
+        fadeElements.forEach((element) => {
+          observer.observe(element);
+        });
+      }
+
+      function restoreTheme() {
+        // Restore theme from localStorage after page transition
+        const STORAGE_KEY = "site:theme";
+        try {
+          const storedTheme = localStorage.getItem(STORAGE_KEY);
+          const theme =
+            storedTheme ||
+            (window.matchMedia &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches
+              ? "dark"
+              : "light");
+          document.documentElement.setAttribute("data-theme", theme);
+        } catch (e) {}
+      }
+
+      // Initialize on page load
+      initFadeInAnimations();
+
+      // Re-initialize after view transitions (if using Astro view transitions)
+      document.addEventListener("astro:page-load", () => {
+        initFadeInAnimations();
+        restoreTheme();
+      });
+    </script>
   </body>
 </html>

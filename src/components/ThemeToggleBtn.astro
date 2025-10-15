@@ -23,12 +23,13 @@
   type="button"
   class="border-border relative flex h-[2.375rem] w-[2.375rem] scale-[0.8] cursor-pointer items-center justify-center overflow-hidden rounded-full border md:scale-100"
   aria-pressed="false"
+  transition:persist
 >
   <span class="sr-only">Toggle Dark / Light Theme</span>
 
   <!-- Moon Icon -->
   <svg
-    class="moon fill-muted absolute opacity-70 transition-all duration-500 ease-in-out motion-reduce:transition-none motion-reduce:duration-0"
+    class="moon fill-muted absolute opacity-70"
     width="18"
     height="18"
     viewBox="0 0 18 18"
@@ -43,7 +44,7 @@
 
   <!-- Sun Icon -->
   <svg
-    class="sun fill-muted absolute opacity-70 transition-all duration-500 ease-in-out motion-reduce:transition-none motion-reduce:duration-0"
+    class="sun fill-muted absolute opacity-70"
     width="18"
     height="18"
     viewBox="0 0 18 18"
@@ -58,6 +59,12 @@
 
   <style>
     @reference "../styles/global.css";
+
+    /* Only animate when the button has been clicked */
+    button.animate .moon,
+    button.animate .sun {
+      @apply transition-all duration-500 ease-in-out motion-reduce:transition-none motion-reduce:duration-0;
+    }
 
     :global(html[data-theme="dark"]) .sun {
       @apply translate-y-[18px] scale-[0.25] opacity-0;
@@ -95,7 +102,16 @@
       toggle.addEventListener("click", function () {
         var current = document.documentElement.getAttribute("data-theme");
         var target = current === "light" ? "dark" : "light";
+
+        // Add animate class to trigger transition
+        toggle.classList.add("animate");
+
         setTheme(target);
+
+        // Remove animate class after transition completes
+        setTimeout(function() {
+          toggle.classList.remove("animate");
+        }, 500);
       });
 
       try {
