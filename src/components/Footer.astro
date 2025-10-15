@@ -2,11 +2,9 @@
 import HeaderFooterLink from "./HeaderFooterLink.astro";
 ---
 
-<footer
-  class="fade-in container p-0 sm:px-[calc(var(--container-padding)/2.6)]"
->
+<footer class="container p-0 sm:px-[calc(var(--container-padding)/2.6)]">
   <div
-    class="rounded-t-5xl bg-page-offset grid grid-cols-2 gap-7 px-[var(--container-padding)] py-[calc(var(--container-padding)*1.5)] sm:grid-cols-[repeat(auto-fit,minmax(min(100%,250px),max-content))] sm:gap-[calc(var(--container-padding)/1.5)] sm:p-[calc(var(--container-padding)/1.6)]"
+    class="grid grid-cols-2 gap-7 rounded-t-5xl bg-page-offset px-[var(--container-padding)] py-[calc(var(--container-padding)*1.5)] sm:grid-cols-[repeat(auto-fit,minmax(min(100%,250px),max-content))] sm:gap-[calc(var(--container-padding)/1.5)] sm:p-[calc(var(--container-padding)/1.6)]"
   >
     <!-- Links -->
     <div>
@@ -46,7 +44,7 @@ import HeaderFooterLink from "./HeaderFooterLink.astro";
     <div class="max-md:col-span-2">
       <h2 class="mb-1 text-base font-bold sm:mb-2">Contact</h2>
       <nav class="grid gap-1.5 gap-x-12 md:gap-y-3">
-        <p class="text-muted font-mono">Chattanooga, TN</p>
+        <p class="font-mono text-muted">Chattanooga, TN</p>
         <HeaderFooterLink href="mailto:kyle@kgordy.com">
           kyle@kgordy.com
         </HeaderFooterLink>

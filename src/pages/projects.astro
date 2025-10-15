@@ -10,13 +10,12 @@ import { CHAT_BOOKING_URL } from "../config";
   <main>
     <!-- Hero -->
     <section
-      class="container grid items-center gap-[var(--container-padding)] pb-[calc(var(--container-padding)*1.5)] lg:grid-cols-[1fr_40%] lg:py-0"
-    >
+      class="container grid items-center gap-[var(--container-padding)] pb-[calc(var(--container-padding)*1.5)] lg:grid-cols-[1fr_40%] lg:py-0">
       <div>
         <h2 class="mb-4 text-3xl font-bold lg:mb-7">
           I design hard-working websites & apps.
         </h2>
-        <p class="text-muted text-base lg:mb-7">
+        <p class="text-base text-muted lg:mb-7">
           Hi, I’m Kyle 👋 I'm a multifaceted UI Designer / Frontend Developer
           with 10+ years of experience. I’m passionate about building effective,
           impactful, and accessible products folks enjoy using.
@@ -26,8 +25,7 @@ import { CHAT_BOOKING_URL } from "../config";
 
       <!-- Moody Portrait -->
       <div
-        class="outline-border relative z-10 order-first max-w-[250px] overflow-hidden rounded-4xl rounded-br-none outline-1 outline-offset-[-1px] lg:order-none lg:max-w-[500px] lg:place-self-end"
-      >
+        class="relative z-10 order-first max-w-[250px] overflow-hidden rounded-4xl rounded-br-none  outline-1 outline-offset-[-1px] outline-border lg:order-none lg:max-w-[500px] lg:place-self-end">
         <img
           class="relative z-10"
           src="https://res.cloudinary.com/drl4zairb/image/upload/w_500,h_750,c_fill,g_face,q_auto:eco,f_auto,dpr_1/v1679294928/moody-portrait-v2_epbe4v.png"
@@ -42,11 +40,11 @@ import { CHAT_BOOKING_URL } from "../config";
         />
 
         <Triangle
-          class="text-primary absolute right-0 bottom-0 z-0 [--size:min(35vw,650px)]"
+          class="[--size:min(35vw,650px)] absolute bottom-0 right-0 text-primary z-0"
         />
 
         <Triangle
-          class="text-primary absolute right-0 bottom-0 z-20 [--size:min(15vw,80px)]"
+          class="[--size:min(15vw,80px)] absolute bottom-0 right-0 text-primary z-20"
         />
       </div>
     </section>
@@ -56,10 +54,9 @@ import { CHAT_BOOKING_URL } from "../config";
 
     <!-- Help CTA -->
     <section
-      class="container py-[calc(var(--container-padding)*2)] md:py-[var(--container-padding)]"
-    >
+      class="container py-[calc(var(--container-padding)*2)] md:py-[var(--container-padding)]">
       <h2 class="mb-3 text-2xl font-bold md:mb-4">Need help with a project?</h2>
-      <p class="text-muted mb-4 max-w-2xl text-base md:mb-6">
+      <p class="mb-4 max-w-2xl text-base text-muted md:mb-6">
         I’m currently looking for new ones and would love to learn more about
         yours. I’m comfortable working alone or alongside your team.
       </p>

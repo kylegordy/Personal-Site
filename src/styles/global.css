@@ -2,8 +2,7 @@
 
 @theme {
   /* Typography */
-  --font-sans:
-    SoraVariable, Sora, ui-sans-serif, system-ui, sans-serif,
+  --font-sans: SoraVariable, Sora, ui-sans-serif, system-ui, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --leading-relaxed: 1.8;
 
@@ -89,7 +88,7 @@
 
 @layer components {
   .btn-link {
-    @apply border-primary hover:border-primary-dark hover:text-primary focus:border-primary-dark focus:text-primary border-b-2 pb-1 font-bold transition-colors;
+    @apply border-b-2 border-primary pb-1 font-bold transition-colors hover:border-primary-dark hover:text-primary focus:border-primary-dark focus:text-primary;
   }
 }
 
@@ -147,32 +146,4 @@ html[data-theme="dark"] {
   /* Primary Color */
   --color-primary: var(--color-amber);
   --color-primary-dark: var(--color-amber-dark);
-}
-
-/* ----------------------- */
-/*  Fade-in Animations     */
-/* ----------------------- */
-
-/* Elements start invisible and translated down */
-.fade-in {
-  opacity: 0;
-  transform: translateY(20px);
-  transition:
-    opacity 0.5s ease-out,
-    transform 0.6s ease-out;
-}
-
-/* When element is visible, fade in and slide up */
-.fade-in.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Respect user motion preferences */
-@media (prefers-reduced-motion: reduce) {
-  .fade-in {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
 }
