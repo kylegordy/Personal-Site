@@ -1,0 +1,180 @@
+---
+/**
+ * Motion Component
+ *
+ * A wrapper component for scroll-triggered animations using Motion One.
+ *
+ * @example
+ * <Motion
+ *   initial={{ opacity: 0, y: 20 }}
+ *   inView={{ opacity: 1, y: 0 }}
+ *   transition={{ duration: 0.6 }}
+ * >
+ *   <div>Animates when scrolled into view</div>
+ * </Motion>
+ */
+
+export interface Props {
+  as?: string;
+  class?: string;
+  initial?: Record<string, any>;
+  inView?: Record<string, any>;
+  transition?: Record<string, any>;
+  viewportAmount?: number;
+}
+
+const {
+  as = "div",
+  class: className,
+  initial,
+  inView,
+  transition,
+  viewportAmount = 0.2,
+  ...rest
+} = Astro.props;
+---
+
+<motion-element
+  data-as={as}
+  data-class={className}
+  data-in-view={inView ? JSON.stringify(inView) : undefined}
+  data-transition={transition ? JSON.stringify(transition) : undefined}
+  data-viewport-amount={viewportAmount}
+  {...rest}
+>
+  <div
+    class={className}
+    style={initial ? (() => {
+      // Regular CSS properties
+      const cssProps = Object.entries(initial)
+        .filter(([key]) => !['x', 'y', 'scale', 'scaleX', 'scaleY', 'rotate'].includes(key))
+        .map(([key, value]) => `${key}: ${value};`)
+        .join(' ');
+
+      // Transform properties
+      const transforms = [
+        initial.x !== undefined || initial.y !== undefined ? `translate(${initial.x ?? 0}px, ${initial.y ?? 0}px)` : '',
+        initial.scale !== undefined ? `scale(${initial.scale})` : '',
+        initial.scaleX !== undefined ? `scaleX(${initial.scaleX})` : '',
+        initial.scaleY !== undefined ? `scaleY(${initial.scaleY})` : '',
+        initial.rotate !== undefined ? `rotate(${initial.rotate}deg)` : '',
+      ].filter(Boolean).join(' ');
+
+      return transforms ? `${cssProps} transform: ${transforms};` : cssProps;
+    })() : undefined}
+  >
+    <slot />
+  </div>
+</motion-element>
+
+<script>
+  import { animate, inView } from "motion";
+
+  class MotionElement extends HTMLElement {
+    connectedCallback() {
+      const as = this.dataset.as || "div";
+      const inViewProps = this.dataset.inView
+        ? JSON.parse(this.dataset.inView)
+        : undefined;
+      const transition = this.dataset.transition
+        ? JSON.parse(this.dataset.transition)
+        : undefined;
+      const viewportAmount = parseFloat(this.dataset.viewportAmount || "0.2");
+
+      // Get the inner wrapper div
+      const innerDiv = this.querySelector(':scope > div');
+      if (!innerDiv) return;
+
+      // Check if user prefers reduced motion
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      // If 'as' is specified and not 'div', create the proper element
+      if (as !== "div") {
+        const element = document.createElement(as);
+        element.className = innerDiv.className;
+
+        // Copy all attributes except class (already set) and style (handle separately)
+        Array.from(innerDiv.attributes).forEach(attr => {
+          if (attr.name !== 'class' && attr.name !== 'style') {
+            element.setAttribute(attr.name, attr.value);
+          }
+        });
+
+        // Only copy inline styles if not preferring reduced motion
+        if (!prefersReducedMotion) {
+          const inlineStyle = innerDiv.getAttribute('style');
+          if (inlineStyle) {
+            element.setAttribute('style', inlineStyle);
+          }
+        }
+
+        // Move children from inner div to new element
+        while (innerDiv.firstChild) {
+          element.appendChild(innerDiv.firstChild);
+        }
+
+        // Replace custom element with actual element
+        this.parentNode?.replaceChild(element, this);
+
+        // Apply scroll-triggered animation to new element (animate once)
+        // Skip animation if user prefers reduced motion
+        if (inViewProps && !prefersReducedMotion) {
+          inView(
+            element,
+            () => {
+              animate(element, inViewProps, transition);
+              return () => {}; // Return cleanup function (no-op since we only animate once)
+            },
+            { amount: viewportAmount }
+          );
+        }
+      } else {
+        // Remove inline styles if user prefers reduced motion
+        if (prefersReducedMotion) {
+          innerDiv.removeAttribute('style');
+        }
+
+        // For div, just replace motion-element with the inner div
+        this.parentNode?.replaceChild(innerDiv, this);
+
+        // Apply scroll-triggered animation to the div (animate once)
+        // Skip animation if user prefers reduced motion
+        if (inViewProps && !prefersReducedMotion) {
+          inView(
+            innerDiv,
+            () => {
+              animate(innerDiv, inViewProps, transition);
+              return () => {}; // Return cleanup function (no-op since we only animate once)
+            },
+            { amount: viewportAmount }
+          );
+        }
+      }
+    }
+  }
+
+  // Only define if not already defined (prevents errors on page navigation)
+  if (!customElements.get("motion-element")) {
+    customElements.define("motion-element", MotionElement);
+  }
+</script>
+
+<style>
+  /* Respect user's motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    motion-element > div {
+      opacity: 1 !important;
+      transform: none !important;
+    }
+  }
+</style>
+
+<noscript>
+  <style>
+    /* Fallback for users with JavaScript disabled - show content normally */
+    motion-element > div {
+      opacity: 1 !important;
+      transform: none !important;
+    }
+  </style>
+</noscript>
